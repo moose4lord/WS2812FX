@@ -73,6 +73,7 @@ isRunning	KEYWORD2
 isTriggered	KEYWORD2
 isFrame	KEYWORD2
 isCycle	KEYWORD2
+setRandomSeed	KEYWORD2
 random8	KEYWORD2
 random16	KEYWORD2
 getLength	KEYWORD2

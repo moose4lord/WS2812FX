@@ -525,28 +525,32 @@ uint8_t WS2812FX::get_random_wheel_index(uint8_t pos) {
   return r;
 }
 
+void WS2812FX::setRandomSeed(uint16_t seed) {
+  _rand16seed = seed;
+}
+
 // fast 8-bit random number generator shamelessly borrowed from FastLED
 uint8_t WS2812FX::random8() {
-    _rand16seed = (_rand16seed * 2053) + 13849;
-    return (uint8_t)((_rand16seed + (_rand16seed >> 8)) & 0xFF);
+  _rand16seed = (_rand16seed * 2053) + 13849;
+  return (uint8_t)((_rand16seed + (_rand16seed >> 8)) & 0xFF);
 }
 
 // note random8(lim) generates numbers in the range 0 to (lim -1)
 uint8_t WS2812FX::random8(uint8_t lim) {
-    uint8_t r = random8();
-    r = ((uint16_t)r * lim) >> 8;
-    return r;
+  uint8_t r = random8();
+  r = ((uint16_t)r * lim) >> 8;
+  return r;
 }
 
 uint16_t WS2812FX::random16() {
-    return (uint16_t)random8() * 256 + random8();
+  return (uint16_t)random8() * 256 + random8();
 }
 
 // note random16(lim) generates numbers in the range 0 to (lim - 1)
 uint16_t WS2812FX::random16(uint16_t lim) {
-    uint16_t r = random16();
-    r = ((uint32_t)r * lim) >> 16;
-    return r;
+  uint16_t r = random16();
+  r = ((uint32_t)r * lim) >> 16;
+  return r;
 }
 
 // Return the sum of all LED intensities (can be used for

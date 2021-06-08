@@ -423,6 +423,7 @@ class WS2812FX : public Adafruit_NeoPixel {
       setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w),
       copyPixels(uint16_t d, uint16_t s, uint16_t c),
       setPixels(uint16_t, uint8_t*),
+      setRandomSeed(uint16_t),
       show(void);
 
     bool
